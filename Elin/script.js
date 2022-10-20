@@ -1,36 +1,25 @@
 "use strict";
 
-const blogPosts = document.querySelectorAll("article");
-const maxPosts = document.getElementById("number-of-posts");
-maxPosts.setAttribute("max", blogPosts.length);
+const blogArray = document.querySelectorAll("article");
+const numOfPosts = document.getElementById("number-of-posts");
+numOfPosts.setAttribute("max", blogArray.length);
 
-maxPosts.addEventListener("input", () => {
-  // getInputValue();
-  // let max = maxPosts.getAttribute("max");
-  //max behöver vara equal input!!!!!
-  console.log("number");
-  if (number > blogPosts) {
-    const postsEditCounter = blogPosts.length + number;
-    //FÖR VARJE subtractPosts display:none från slutet
-    for (let i = blogPosts; i >= postsEditCounter; i--) {
-      blogPosts[i].style.display;
+let num = blogArray.length - numOfPosts.value;
+numOfPosts.addEventListener("input", (event) => {
+  console.log(numOfPosts.value);
+
+  blogArray.forEach((post, i) => {
+    if(i < numOfPosts.value) {
+      post.style.display = 'block';
     }
-  } else if (number < blogPosts) {
-    const postsEditCounter = blogPosts.length - number;
-    for (let i = blogPosts; i >= postsEditCounter; i--) {
-      blogPosts[i].style.display.none;
+    else {
+      post.style.display = "none";
     }
-  }
-  console.log(number);
+  });
+
+
 });
 
-let number = () => {
-  let inputVal = document.getElementById("number-of-posts").value;
-};
 
-//FÖR VARJE
-// length of array === NUMOFPOSTS.attribute.max
-//array.length - NUMOFPOSTS.attribute.max array.metod
-//
 
-//NUMOFPOSTS.attribute.max
+
